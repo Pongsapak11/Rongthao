@@ -19,6 +19,15 @@
             <input type="text" class="form-control" name="phoneNumber" id="phoneNumber"
                 value="<?= $rowUser['phone_number']; ?>">
         </div>
+
+        <div class="mb-3">
+            <label for="role">สถานะ :</label>
+            <select id="role" name="role" class=" form-control">
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+
         <div class="d-grid gap-2">
             <button class="btn btn-primary mt-3" type="submit">แก้ไขผู้ใช้งาน</button>
             <a class="btn btn-secondary mt-3" href="<?= base_url(); ?>user">กลับไปหน้ารายการ</a>

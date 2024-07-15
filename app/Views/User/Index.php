@@ -7,6 +7,7 @@
                 <th scope="col">ชื่อผู้ใช้งาน</th>
                 <th scope="col">ชื่อ นามสกุล</th>
                 <th scope="col">อีเมล</th>
+                <th scope="col">สถานะ</th>
                 <th scope="col" class="text-center" width="60">แก้ไข</th>
                 <th scope="col" class="text-center" width="60">ลบ</th>
             </tr>
@@ -18,6 +19,7 @@
                     <td><?= $row['username']; ?></td>
                     <td><?= $row['name']; ?></td>
                     <td><?= $row['email']; ?></td>
+                    <td><?= $row['role']; ?></td>
                     <td class="text-center">
                         <a href="<?= base_url() . 'user/update/' . $row['user_id']; ?>" class="btn btn-warning">แก้ไข</a>
                     </td>

@@ -56,6 +56,7 @@ class User extends BaseController
         $name = $this->request->getPost('name');
         $email = $this->request->getPost('email');
         $phoneNumber = $this->request->getPost('phoneNumber');
+        $role = $this->request->getPost('role');
 
         $message = array();
 
@@ -95,7 +96,8 @@ class User extends BaseController
                 'password' => $password,
                 'name' => $name,
                 'email' => $email,
-                'phone_number' => $phoneNumber
+                'phone_number' => $phoneNumber,
+                'role' => $role
             )
         );
         if ($insert) {
@@ -159,6 +161,7 @@ class User extends BaseController
         $name = $this->request->getPost('name');
         $email = $this->request->getPost('email');
         $phoneNumber = $this->request->getPost('phoneNumber');
+        $role = $this->request->getPost('role');
 
         $userModel = new UserModel();
         $rowUser = $userModel->find($id);
@@ -218,7 +221,8 @@ class User extends BaseController
                 'username' => $username,
                 'name' => $name,
                 'email' => $email,
-                'phone_number' => $phoneNumber
+                'phone_number' => $phoneNumber,
+                'role' => $role
             )
         );
         if ($update) {

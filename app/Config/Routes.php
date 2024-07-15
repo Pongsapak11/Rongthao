@@ -8,6 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::Index');
 $routes->get('/home', 'Home::Index');
 $routes->get('/shop', 'Shop::Index');
+$routes->get('showdetail/(:num)/(:num)', 'Showdetail::index/$1/$2');
 $routes->get('/category/(:num)', 'Category::Index/$1');
 $routes->get('/about/shipping', 'About::Shipping');
 $routes->get('/about/contact', 'About::Contact');

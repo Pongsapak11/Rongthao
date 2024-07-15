@@ -10,9 +10,13 @@
                         <h3 class="card-title"><?= $product['product_name']; ?></h3>
                         <h6 class="card-title">รายละเอียดสินค้า </h6>
                         <p class="card-text"><?= $product['product_detail']; ?></p>
-                        <p class="card-text">ราคา : <?= number_format($product['product_price']); ?> บาท</p>
+                        <p class="card-text">
+                        <h5>ราคา : <?= number_format($product['product_price']); ?> บาท</h5>
+                        </p>
 
                     </div>
+                    <a class="btn btn-dark" style="width: 35%; margin-bottom: 30px; margin-left: 60%; "
+                        href="<?= base_url('showdetail/' . $product['product_id'] . '/' . $product['category_id']); ?>">รายละเอียดสินค้า</a>
                 </div>
             </div>
         <?php endforeach ?>

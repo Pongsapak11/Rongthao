@@ -35,16 +35,27 @@ $categories = $CategoryModel->findAll();
             </li>
 
 
-
             <?php if (session()->get('logged_in')): ?>
-                <li class="nav-item" style="margin-left: 950px;">
-                    <a class="nav-link <?= ($current_page == 'user') ? 'active' : ''; ?> "
-                        href="<?= base_url(); ?>user">จัดการผู้ใช้</a>
+                <?php $role = session()->get('role'); ?>
+                <li style="margin-left: 930px;">
+                    <?php if ($role == 'admin'): ?>
+                    <li class="nav-item">
+                        <a class="nav-link <?= ($current_page == 'user') ? 'active' : ''; ?> "
+                            href="<?= base_url(); ?>user">จัดการผู้ใช้</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link <?= ($current_page == 'product') ? 'active' : ''; ?>"
+                            href="<?= base_url(); ?>product">จัดการสินค้า</a>
+                    </li>
+                <?php endif; ?>
+
+                <li style="margin-left: 20px; margin-right: 20px; margin-top: 2px;">
+                    <a href="">
+                        <img src="https://icons.veryicon.com/png/o/miscellaneous/online-medicine-city-system-icon/basket-42.png"
+                            alt="ตระกร้า" height="35px" width="35px">
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link <?= ($current_page == 'product') ? 'active' : ''; ?>"
-                        href="<?= base_url(); ?>product">จัดการสินค้า</a>
-                </li>
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
@@ -61,5 +72,6 @@ $categories = $CategoryModel->findAll();
                 </li>
             <?php endif ?>
         </ul>
+        </li>
     </div>
 </div>
