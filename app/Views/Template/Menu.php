@@ -50,7 +50,7 @@ $categories = $CategoryModel->findAll();
                 <?php endif; ?>
 
                 <li style="margin-left: 20px; margin-right: 20px; margin-top: 2px;">
-                    <a href="">
+                    <a href="<?= base_url(); ?>cart">
                         <img src="https://icons.veryicon.com/png/o/miscellaneous/online-medicine-city-system-icon/basket-42.png"
                             alt="ตระกร้า" height="35px" width="35px">
                     </a>

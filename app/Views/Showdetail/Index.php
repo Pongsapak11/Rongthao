@@ -81,7 +81,8 @@
                         <b class="title_detail">รายละเอียดสินค้า </b>
                         <p class="product-detail"><?= $item['product_detail'] ?></p>
                         <p class="price">ราคา: <?= number_format($item['product_price']) ?> บาท
-                            <a href="" class="btn btn-success cart">เพิ่มลงรถเข็น</a>
+                            <a class="btn btn-success cart" href="<?= base_url('cart/add/' . $item['product_id']); ?>"
+                                onclick="addToCartAndGoBack(event)">เพิ่มลงรถเข็น</a>
                         </p>
                     </div>
                 </div>
@@ -91,5 +92,30 @@
         <?php endif; ?>
     </div>
 </body>
+
+<script>
+    function addToCartAndGoBack(event) {
+        event.preventDefault();
+
+        // เรียกใช้งาน fetch เพื่อเพิ่มสินค้าลงในรถเข็น
+        fetch(event.target.href, {
+            method: 'GET', // หรือ 'POST' ตามที่คุณต้องการ
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(data.message);
+                } else {
+                    alert(data.message);
+                    // สั่งให้กลับไปยังหน้าก่อนหน้านี้
+                    history.back();
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('เกิดข้อผิดพลาดในการเพิ่มสินค้าลงในรถเข็น');
+            });
+    }
+</script>
 
 </html>
