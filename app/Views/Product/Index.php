@@ -21,8 +21,8 @@
                         <img src="<?= base_url() . $row['image']; ?>" width="100" alt="<?= $row['product_name']; ?>">
                     </td>
                     <td><?= $row['product_name']; ?></td>
-                    <td><?= $row['category_id']; ?></td>
-                    <td><?= $row['product_price']; ?></td>
+                    <td style="text-align: center;"><?= $row['category_name']; ?></td>
+                    <td style="width: 120px;"><?= number_format($row['product_price']); ?> บาท</td>
                     <td><?= $row['product_detail']; ?></td>
                     <td class="text-center">
                         <a href="<?= base_url() . 'product/update/' . $row['product_id']; ?>"

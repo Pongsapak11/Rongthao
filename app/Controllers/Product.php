@@ -19,19 +19,27 @@ class Product extends BaseController
         $productModel = new ProductModel();
         $products = $productModel->findAll();
 
-        $CategoryModel = new CategoryModel();
-        $Category = $CategoryModel->findAll();
+        $categoryModel = new CategoryModel();
+        $categories = $categoryModel->findAll();
+
+        // Create a mapping of category_id to category_name
+        $categoryMap = [];
+        foreach ($categories as $category) {
+            $categoryMap[$category['category_id']] = $category['category_name'];
+        }
+
+        foreach ($products as &$product) {
+            $product['category_name'] = $categoryMap[$product['category_id']] ?? 'ไม่มีหมวดหมู่';
+        }
 
         return (new Template())->Render(
             'Product/Index',
             array(
                 'title' => 'รายการสินค้า',
                 'products' => $products,
-                'Category' => $Category
             )
         );
     }
-
 
     // หน้าฟอร์มในการกรอกเพิ่มสินค้า
     public function Create()
